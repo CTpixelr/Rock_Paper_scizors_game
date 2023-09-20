@@ -1,0 +1,49 @@
+import random
+Wahlen = ["Stein", "Schere", "Papier"]
+Com_Score = 0
+Player_Score = 0
+
+while True:
+    Player = input("Stein,Schere oder Papier?: ")
+    Computer = random.choice(Wahlen)
+    if Computer.lower() == Player.lower():
+        print(Computer)
+        print("Gleichstand")
+    elif Computer.lower() == "stein":
+        if Player.lower() == "schere":
+            print(Computer)
+            print("Sie verlieren")
+            Com_Score +=1
+        elif Player.lower() == "papier":
+            print(Computer)
+            print("Sie Gewinnen")
+            Player_Score +=1
+    elif Computer.lower() == "schere":
+        if Player.lower() == "papier":
+            print(Computer)
+            print("Sie verlieren")
+            Com_Score +=1
+        elif Player.lower() == "stein":
+            print(Computer)
+            print("Sie Gewinnen")
+            Player_Score +=1
+    elif Computer.lower() == "papier":
+        if Player.lower() == "stein":
+            print(Computer)
+            print("Sie verlieren")
+            Com_Score +=1
+        elif Player.lower() == "schere":
+            print(Computer)
+            print("Sie Gewinnen")
+            Player_Score +=1
+    if Player.lower() == "end":
+        print("Endergebnisse:")
+        print("Computer:" + str(Com_Score))
+        print("Player:" + str(Player_Score))
+        if Com_Score > Player_Score:
+            print("Sie Haben Verlohren")
+        elif Com_Score < Player_Score:
+            print("Sie haben Gewonnen")
+        elif Com_Score == Player_Score:
+            print("Gleichstand")
+        break
